@@ -1,34 +1,53 @@
-import logo from './images/logo.svg';
-import mockup from './images/illustration-mockups.svg';
-
+import { useState } from 'react';
 import './App.css';
+import Button from './Component/Button';
+import Display from './Component/Display';
+
 
 function App() {
-  return (
-   
-     <>
-      <header>
-        <img src={logo} alt="logo"/>
-      </header>
-   
-      <main>
-      
-      <img src={mockup} alt="mockup"/>
-      <div className="content">
-        <h2>Build the community your fans will love</h2>
-        <p>There are also designs for the mobile view and active states for certain elements on the implementation of the design as well.</p>
-        <button>Register</button>
-      </div>
-      </main>
 
-      <footer>
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-      </footer>
+  //const [state, setstate] = useState(initialState)
+
+  const [skills, setSkills] = useState("Elm")
+
+  const handleReact/**handle function-simple way of writing function */ = ()=>{
+    setSkills("React")
+   
+  }
+
+  const handleElm =()=>{
+    setSkills("Elm")
+    
+  }
+
+  const handleRedux =()=>{
+    setSkills("React-Redux")
+   
+  }
+
+  return (
+    <>
+      <div className="appstyling">
+        <Display tech={skills} />
+
+        <Button ClickHandler = {handleReact} btntext={"React"}/>
+        <Button ClickHandler = {handleElm} btntext={"Elm"}/>
+        <Button ClickHandler = {handleRedux} btntext={"React-Redux"}/>
+        {/*<div className="btns">
+          <button onClick ={handleReact}>React</button>
+          <button onClick ={handleElm}>Elm</button>
+          <button onClick ={handleRedux}>React-Redux</button>
+        </div>*/}
+      
+      </div>
     </>
-         
+
   );
 }
 
 export default App;
+//Todo
+/*react component(function and class component)- breaking down work in different component e.g header in se
+parete folder under component folder in src*/
+//react props - a property/variable you pass to a component i.e you want it to be in both display file and app.js
+//state
